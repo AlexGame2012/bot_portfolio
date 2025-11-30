@@ -117,18 +117,18 @@ def info(message):
     commands_info = """
 📋 **Доступные команды:**
 
-/new_project - добавить новый проект
+/newproject - добавить новый проект
 /projects - показать все проекты
 /skills - выбрать навык для проекта
 /delete - удалить проект
-/update_projects - обновить проект
+/updateprojects - обновить проект
 
 💡 Также ты можешь ввести имя проекта и узнать информацию о нем!
 """
     bot.send_message(message.chat.id, commands_info, reply_markup=hide_board, parse_mode='Markdown')
 
 
-@bot.message_handler(commands=['new_project'])
+@bot.message_handler(commands=['newproject'])
 def addtask_command(message):
     bot.send_message(message.chat.id, "📝 Введите название проекта:", reply_markup=hide_board)
     bot.register_next_step_handler(message, name_project)
@@ -347,7 +347,7 @@ def delete_project(message, projects):
     bot.send_message(message.chat.id, f'🗑️ Проект {project} удален!', reply_markup=hide_board)
 
 
-@bot.message_handler(commands=['update_projects'])
+@bot.message_handler(commands=['updateprojects'])
 def update_project(message):
     user_id = message.from_user.id
     projects = manager.get_projects(user_id)
