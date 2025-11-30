@@ -1,0 +1,2 @@
+sqlite3
+telebot==0.05
